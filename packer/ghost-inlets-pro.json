@@ -25,7 +25,8 @@
         "scripts/install-cloud-init.sh",
         "scripts/install-docker.sh",
         "scripts/install-docker-compose.sh",
-        "scripts/install-ghost.sh"
+        "scripts/install-ghost.sh",
+        "scripts/install-user-data.sh"
       ]
     }
   ]

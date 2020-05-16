@@ -6,8 +6,7 @@ echo "Installing Ghost with Docker Compose ..."
 useradd --system --home /etc/ghost.d --shell /bin/false ghost
 usermod -aG docker ghost
 
-mkdir --parents /opt/caddy
-mkdir --parents /opt/ghost/content
+mkdir --parents /opt/ghost
 mkdir --parents /etc/ghost.d
 
 if [ $INLETS_PRO == "true" ]; then
@@ -33,7 +32,7 @@ services:
     ]
     restart: always
     volumes:
-      - "/opt/caddy:/data/caddy"
+      - "/opt/ghost/caddy:/data/caddy"
   inlets:
     image: inlets/inlets-pro:0.6.1
     restart: always
@@ -68,7 +67,6 @@ services:
 EOF
 fi
 
-chown --recursive ghost:ghost /opt/caddy
 chown --recursive ghost:ghost /opt/ghost
 chown --recursive ghost:ghost /etc/ghost.d
 

@@ -14,6 +14,7 @@ cat - > /etc/ghost.d/docker-compose.yaml <<'EOF'
 version: '3.2'
 services:
   ghost:
+    container_name: ghost
     image: ghost:3.14.0-alpine
     restart: always
     volumes:
@@ -21,6 +22,7 @@ services:
     environment:
       url: "https://${GHOST_DOMAIN}"
   caddy:
+    container_name: caddy
     image: caddy:2.0.0-alpine
     command: [
       "caddy",
@@ -34,6 +36,7 @@ services:
     volumes:
       - "/opt/ghost/caddy:/data/caddy"
   inlets:
+    container_name: inlets
     image: inlets/inlets-pro:0.6.1
     restart: always
     command: [
@@ -49,6 +52,7 @@ cat - > /etc/ghost.d/docker-compose.yaml <<'EOF'
 version: '3.2'
 services:
   ghost:
+    container_name: ghost
     image: ghost:3.14.0-alpine
     restart: always
     volumes:
@@ -56,6 +60,7 @@ services:
     environment:
       url: "${GHOST_URL}"
   inlets:
+    container_name: inlets
     image: inlets/inlets:2.7.0
     restart: always
     command: [

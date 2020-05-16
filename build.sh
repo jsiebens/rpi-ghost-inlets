@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-rm ${PWD}/output-arm-image/$1.iso
+rm ${PWD}/output-arm-image/$1.iso || true
 
 docker run \
   --rm \
